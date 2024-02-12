@@ -1,0 +1,834 @@
+<!--
+    templateType: page
+    isAvailableForNewContent: true
+-->
+<!doctype html>
+<html>
+  <head>
+    {{ standard_header_includes }}
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailSignature</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no">
+    <meta name="autolink" content="no">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400;1,9..40,500&family=Open+Sans&family=Poppins:ital,wght@0,200;0,400;1,200;1,300&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://demos.codexworld.com/international-telephone-input-with-country-flags-dial-codes-jquery/css/intlTelInput.css">
+    <style>
+        v* {
+            behavior: url(#default#VML);
+            display: inline-block;
+        }
+
+        /* .wp-image-1269 {
+            height: auto;
+            max-width: 100%;
+        } */
+
+        body,
+        table,
+        td,
+        tr,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            border: 0px solid #ffffff;
+            outline: 0px solid #ffffff;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /* iOS BLUE LINKS */
+
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0px 0px 0px 0px;
+            padding: 0px 0px 0px 0px;
+            color: rgb(55, 135, 119);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            margin: 0px 0px 0px 0px;
+        }
+
+        .signature-row {
+            display: flex;
+            flex-wrap: nowrap;
+            align-content: center;
+            margin: 20px;
+        }
+
+        .logo-col {
+            border-right: 2px solid;
+            padding: 30px;
+        }
+
+        .logo-col img {
+            width: 140px;
+        }
+
+        .logo-url {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .logo-url a {
+            text-decoration: none;
+            font-size: 10px;
+            color: #078d7a;
+        }
+
+        .content-col {
+            padding: 10px 20px;
+        }
+
+        .content-col h2 {
+            font-weight: 500;
+            font-size: 20px;
+        }
+
+        .content-col p {
+            font-size: 10px;
+            color: #2c68a5;
+        }
+
+        .city-selection {
+            padding-left: 0;
+        }
+
+        ul.city-selection li {
+            color: #078d7a;
+            display: inline;
+            border-right: 1px solid;
+            padding-right: 10px;
+            padding-left: 5px;
+            font-size: 10px;
+        }
+
+        ul.city-selection li:last-child {
+            border-right: 0px solid;
+        }
+
+        .intl-tel-input {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .source {
+            width: 30%;
+            float: left;
+            margin-right: 2%;
+            padding: 20px;
+            background: lightblue;
+            color: #333;
+        }
+
+        .destination-container {
+            display: block;
+            width: 68%;
+            float: left;
+            padding: 20px;
+            background: goldenrod;
+            color: #f7f7f7;
+        }
+
+        .destination {
+            margin: 0;
+        }
+
+        .label {
+            padding: 10px;
+            font-size: 18px;
+            color: #111;
+        }
+
+        .copy-text {
+            position: relative;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            display: flex;
+        }
+
+        .copy-text input.text {
+            padding: 10px;
+            font-size: 18px;
+            color: #555;
+            border: none;
+            outline: none;
+        }
+
+        .copy-text button {
+            padding: 10px;
+            background: #5784f5;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .copy-text button:active {
+            background: #789ce2;
+        }
+
+        .copy-text button:before {
+            content: "Copied";
+            position: absolute;
+            top: -45px;
+            right: 0px;
+            background: #5c81dc;
+            padding: 8px 10px;
+            border-radius: 20px;
+            font-size: 15px;
+            display: none;
+        }
+
+        .copy-text button:after {
+            content: "";
+            position: absolute;
+            top: -20px;
+            right: 25px;
+            width: 10px;
+            height: 10px;
+            background: #5c81dc;
+            transform: rotate(45deg);
+            display: none;
+        }
+
+        .copy-text.active button:before,
+        .copy-text.active button:after {
+            display: block;
+        }
+
+        footer {
+            position: fixed;
+            height: 50px;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            background-color: #5784f5;
+            color: white;
+            text-align: center;
+        }
+
+        footer p {
+            margin: revert;
+            padding: revert;
+        }
+
+        button.custom-btn-position {
+            top: 28px;
+            left: 16px;
+        }
+
+        ::selection {
+            background-color: #078d7a;
+            color: white;
+        }
+
+        #text {
+            box-sizing: border-box;
+            background-color: #e8ebee;
+            color: #078d7a;
+            border-radius: 15px;
+            padding: 10px 15px;
+            margin: 20px;
+            display: flex;
+        }
+
+        #copy {
+            position: relative;
+            color: #fff;
+        }
+
+        #copy:before {
+            content: "";
+            width: 16px;
+            height: 16px;
+            bottom: -20px;
+            left: 82px;
+            clip-path: polygon(50% 40%, 0% 100%, 100% 100%);
+        }
+
+        #copy:after {
+            content: attr(tooltip);
+            width: 140px;
+            bottom: -48px;
+            left: 20px;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        #copy:before,
+        #copy:after {
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            background-color: #078d7a;
+            color: #fff;
+            transform: translateY(-10px);
+            transition: all 300ms ease;
+        }
+
+        #copy:hover:before,
+        #copy:hover:after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fa {
+            padding-right: 10px;
+            font-size: 30px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .meet {
+            margin-left: 90px;
+ 
+        }
+
+        .border {
+            height: 0px;
+        }
+
+        /* Add a hover effect if you want */
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        /* Set a specific color for each brand */
+
+        /* Facebook */
+        .fa-facebook {
+            color: black;
+        }
+
+        /* Twitter */
+        .fa-twitter {
+            color: black;
+        }
+
+        .fa-linkedin {
+            color: black;
+        }
+
+        .blockart-section-inner {
+            text-align: center;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+           
+    </style>
+  </head>
+  <body>
+      <section class="p-5 m-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                </div>
+                <div class="col-md-5">
+                    <form action="javascript:void(0);" method="post" id="form">
+                        <div class="card rounded-0 shadow w-100">
+                            <div class="border-0 coard-body p-4 rounded-0">
+                                <form action="javascript:void(0);" method="post" id="form">
+                                    <label for="" class="form-label mb-1 mt-2">Full Name</label>
+                                    <input type="text" pattern="[A-Za-z]+" class="border-1 form-control rounded-0 shadow-sm" id="UserName"
+                                        placeholder="" title="Only alphabets are allowed" required>
+
+                                    <label for="" class="form-label mb-1 mt-2">Designation</label>
+                                    <input type="text" class="border-1 form-control rounded-0 shadow-sm"
+                                        id="Designation" placeholder="" pattern="[A-Za-z]+" title="Only alphabets are allowed" required>
+                                    <label for="" class="form-label mb-1 mt-2">Phone No.</label>
+                                    <input type="number" class="border-1 form-control rounded-0 shadow-sm w-100"
+                                        name="phone" id="phone" maxlength="10" pattern=[0-9]{1}[0-9]{9} placeholder="" required>
+                                    <label for="" class="form-label mb-1 mt-2">Work Location</label>
+                                    <select id="mySelect" class="form-select  rounded-0 shadow-sm"
+                                        aria-label="Default select example">
+                                        <option value="1">Select Your Work Location</option>
+                                        <option value="1">Denver</option>
+<!--                                          <option value="2">Mumbai</option>  -->
+<!--                                          <option value="3">Pune</option>  -->
+<!--                                          <option value="4">Banglore</option>  -->
+                                        <option value="2">Noida</option>
+                                    </select>
+                                    <button class="btn btn-success m-auto mt-4 rounded-0 text-center w-50" type="button"
+                                        onclick="show_code()">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-7">
+                    <h1 class="m-auto pb-5 text-center">Signature Generator</h1>
+
+                    <div class="" id="source">
+                        <table style="background-color: #ffffff;" width="100%" cellspacing="0" cellpadding="0"
+                            border="0">
+                            <tbody>
+                                <tr>
+                                    <td valign="top" align="left">
+                                        <table width="600" class="border" cellspacing="0" cellpadding="0" border="0"
+                                            bgcolor="#ffffff">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0"
+                                                            bgcolor="#ffffff">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td height="15"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="15"></td>
+                                                                    <td width="140" height="90" align="left">
+                                                                        <a href="https://consiliorit.com/"><img
+                                                                                width="140" height="120"
+                                                                                style="width: 140px;height: 120px;display: block;margin: 15px 0px 0px 0px;border: none;padding: 0px 0px 0px 0px;font-family:Arial, 'Helvetica', sans-serif;font-size: 14px;font-weight: normal;color: #000000;text-align: left;"
+                                                                                src="https://23441927.fs1.hubspotusercontent-na1.net/hubfs/23441927/logo_cit.png"
+                                                                                alt="logo_cit"></a>
+
+                                                                    </td>
+                                                                    <td width="20" height="60" align="left"
+                                                                        style="border-right: 2px solid #378777;"></td>
+                                                                    <td width="20" height="60" align="left"></td>
+                                                                    <td width="500" height="60" align="right">
+                                                                        <table width="100%" cellspacing="0"
+                                                                            cellpadding="0" border="0">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <p id="UserNameID"
+                                                                                            style="font-family:Arial,'Open Sans',sans-serif; font-size: 20px; line-height: 26px; font-weight: normal; font-style: normal; text-align: left; color: black; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;display: inline;">
+                                                                                             Full Name
+                                                                                        </p>
+                                                                                        <sup
+                                                                                            style="color: #d9d9d9;font-size: 10px;margin: 0px 0px 0px 0px;padding: 0px 0px 0px 5px;"><span
+                                                                                                id="gender1"></span></sup>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <p id="DesignationID"
+                                                                                            style="font-family:Arial,'Open Sans',sans-serif; font-size: 10px; line-height: 16px; font-weight: normal; font-style: normal; text-align: left; color: black; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
+                                                                                            Designation
+                                                                                        </p>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <p
+                                                                                            style="font-family: Arial,'Open Sans',sans-serif; font-size: 10px; line-height: 16px; font-weight: normal; font-style: normal; text-align: left; color: black; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;">
+                                                                                            <span></span><span id="CountryCodeID1"></span>
+                                                                                            <span id="CountryCodeID">xxxxx</span>
+                                                                                        </p>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td height="30"></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <table cellspacing="0"
+                                                                                            cellpadding="0" border="0">
+                                                                                            <tbody>
+                                                                                                <tr id="myList"
+                                                                                                    class="city-selection">
+                                                                                                    <td
+                                                                                                        style="font-family: Arial,'Open Sans',sans-serif;font-size: 10px;line-height: 12px;font-weight: normal;font-style: normal;text-align: left;color: black;padding: 0px 8px 0px 0px;margin: 0px 0px 0px 0px;border-right: 1px solid #17b291;">
+                                                                                                        <span
+                                                                                                            class="remove_css">Denver</span>
+                                                                                                    </td>
+<!--                                                                                                     <td
+                                                                                                        style="font-family: Arial,'Open Sans',sans-serif; font-size: 10px; line-height: 12px; font-weight: normal; font-style: normal; text-align: left; color: #378777; padding: 0px 8px 0px 8px; margin: 0px 0px 0px 0px;border-right: 1px solid #17b291;">
+                                                                                                        <span
+                                                                                                            class="remove_css">Noida</span>
+                                                                                                    </td> -->
+<!--                                                                                                     <td
+                                                                                                        style="font-family: Arial,'Open Sans',sans-serif; font-size: 10px; line-height: 12px; font-weight: normal; font-style: normal; text-align: left; color: #378777; padding: 0px 8px 0px 8px; margin: 0px 0px 0px 0px;border-right: 1px solid #17b291;">
+                                                                                                        <span
+                                                                                                            class="remove_css">Pune</span>
+                                                                                                    </td>
+                                                                                                    <td
+                                                                                                        style="font-family: Arial,'Open Sans',sans-serif; font-size: 10px; line-height: 12px; font-weight: normal; font-style: normal; text-align: left; color: #378777; padding: 0px 8px 0px 8px; margin: 0px 0px 0px 0px;border-right: 1px solid #17b291;">
+                                                                                                        <span
+                                                                                                            class="remove_css">Bangalore</span>
+                                                                                                    </td> -->
+                                                                                                    <td
+                                                                                                        style="font-family: Arial,'Open Sans',sans-serif; font-size: 10px; line-height: 12px; font-weight: normal; font-style: normal; text-align: left; color: black; padding: 0px 0px 0px 8px; margin: 0px 0px 0px 0px;">
+                                                                                                        <span
+                                                                                                            class="remove_css">Noida</span>
+                                                                                                    </td> 
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                    <td width="10"></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr style="height: 10px;">
+                                                    <td>
+                                                        <table width="100%"" border=" 0" cellspacing="0" cellpadding="0"
+                                                            bgcolor="#ffffff">
+                                                            <tbody
+                                                                style="background-color:  rgb(55, 135, 119); height: 5px;">
+                                                                <tr>
+                                                                    <td><a href="https://consiliorit.com/"
+                                                                            class="btn"><img width="120px" height="20px" style="width: 120px; height: 20px;"
+                                                                                src="https://23441927.fs1.hubspotusercontent-na1.net/hubfs/23441927/cons7.png"> </a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <figure class="fa fa-linkedin"><a
+                                                                                href="https://www.linkedin.com/company/consilior-it/"><img width="20px" height="20px"  style="width: 20px; height: 20px;"
+                                                                                    loading="lazy" decoding="async" 
+                                                                                    src="https://23441927.fs1.hubspotusercontent-na1.net/hubfs/23441927/lkindIn.png" alt=""></a>
+                                                                        </figure>
+                                                                    </td>
+                                                                    <td>
+                                                                        <figure class="fa fa-facebook"><a
+                                                                                href="https://consiliorit.com/"><img width="20px" height="20px" style="width: 20px; height: 20px;"
+                                                                                    decoding="async" src="https://23441927.fs1.hubspotusercontent-na1.net/hubfs/23441927/brow5.png"
+                                                                                    alt=""></a></figure>
+                                                                    </td> 
+<!--                                                                     <td>
+                                                                        <figure class="fa fa-twitter"><a
+                                                                                href="https://www.linkedin.com/company/consilior-it/"><img
+                                                                                    decoding="async" src="https://23441927.fs1.hubspotusercontent-na1.net/hubfs/23441927/tw.png"
+                                                                                    alt=""></a></figure>
+                                                                    </td>
+                                                                    <td>
+                                                                        <figure class="fa fa-instagram"><a
+                                                                                href="https://www.linkedin.com/company/consilior-it/"><img
+                                                                                    decoding="async" src="https://23441927.fs1.hubspotusercontent-na1.net/hubfs/23441927/inst.png"
+
+                                                                                    alt=""></a></figure>
+                                                                    </td> -->
+                                                                    <td>
+                                                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                        </p>
+                                                                    </td>
+                                                                    <td> <span> <a text-decoration: none;
+                                                                        href="https://consiliorit.com/meeting/"> <button 
+                                                                          style="border-radius: 15px; color: #078d7a; width: 200px; height: 30px; border: 1px solid white"><a style="text-decoration: none; width: 120px; height:20px; font-size: 18px; padding: 0px 10px 0px 10px; color: #078d7a; " href="https://consiliorit.com/meeting/">Schedule a meeting </button> </a> </span>                                  
+                                                                                                               
+<!--                                                                                                                <img
+                                                                                src="https://23441927.fs1.hubspotusercontent-na1.net/hubfs/23441927/sche12.png"; width= "125px"; height= "22px";>                                       -->
+                                                
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button id="copy" class="btn btn-success m-auto mt-4 rounded-0 text-center"
+                        tooltip="Copy to clipboard">Copy
+                        to clipboard</button>
+                </div>
+<!--                <div class="col-md-12 position-relative">
+                    <button
+                        class="btn btn-success m-auto mt-4 position-absolute rounded-0 text-center custom-btn-position"
+                        id="button">Copy the code</button>
+                    <div id="copycode" class="container p-0">
+                        <pre id="destination" class="bg-black bg-color-black mt-5 text-warning"
+                            style="border: 5px solid #afafaf; height: 150px;"></pre>
+                    </div>
+                </div> -->
+            </div> 
+        </div>
+    </section>
+    {{ standard_footer_includes }}
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+    src="https://demos.codexworld.com/international-telephone-input-with-country-flags-dial-codes-jquery/js/intlTelInput.js"></script>
+<script>
+    $("#mySelect").change(function () { });
+
+    //clipboard
+
+    const textElement = document.getElementById("source");
+    const copyButton = document.getElementById("copy");
+
+    const copyText = (e) => {
+        window.getSelection().selectAllChildren(textElement);
+        document.execCommand("copy");
+        e.target.setAttribute("tooltip", "Copied! ✅");
+    };
+
+    const resetTooltip = (e) => {
+        e.target.setAttribute("tooltip", "Copy to clipboard");
+    };
+
+    copyButton.addEventListener("click", (e) => copyText(e));
+    copyButton.addEventListener("mouseover", (e) => resetTooltip(e));
+
+
+
+
+    // caching the elements
+    var UserName = document.getElementById("UserName"),
+        UserNameID = document.getElementById("UserNameID"),
+        // Pronounce = document.getElementById("Pronounce"),
+        // gender1 = document.getElementById("gender1"),
+
+        Designation = document.getElementById("Designation"),
+        DesignationID = document.getElementById("DesignationID"),
+        phone = document.getElementById("phone"),
+        CountryCodeID = document.getElementById("CountryCodeID"),
+        CountactNo = document.getElementById("CountactNo"),
+        CountactNoID = document.getElementById("CountactNoID"),
+        textarea = document.getElementById("textarea"),
+        par = document.getElementById("par"),
+        phonenumbercountry = document.getElementById("phonenumbercountry"),
+        code = document.getElementById("code"),
+        phonenumber = document.getElementById("phonenumber"),
+        num = document.getElementById("num");
+    // country and Phone No.
+
+
+    // the main function: get the content from source and display it in destination
+    function display(source, destination) {
+        destination.textContent = source;
+    }
+    // events
+    UserName.onkeyup = function () {
+        display(this.value, UserNameID);
+    };
+
+    Designation.onkeyup = function () {
+        display(this.value, DesignationID);
+    };
+
+    // Pronounce.onkeyup = function () {
+    //     display("(" + this.value + ")", gender1);
+    // };
+    // CountryCode.onkeyup = function () { display(this.value, CountryCodeID); };
+
+    phone.onkeyup = function () {
+        display(this.value, CountryCodeID);
+    };
+
+    // CountactNo.onkeyup = function () { display(this.value, CountactNoID); };
+
+    // phonenumbercountry.onkeyup = function () { display(this.value, code); };
+
+    // phonenumber.onkeyup = function () { display(this.value, num); };
+
+    // Telephone no
+
+    var input = document.querySelector("#phone"),
+        errorMsg = document.querySelector("#error-msg"),
+        validMsg = document.querySelector("#valid-msg");
+
+    // Error messages based on the code returned from getValidationError
+    var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+
+    // Initialise plugin
+    var intl = window.intlTelInput(input, {
+        initialCountry: "auto",
+        geoIpLookup: function (success, failure) {
+            $.get("https://ipinfo.io", function () { }, "jsonp").always(function (resp) {
+                var countryCode = (resp && resp.country) ? resp.country : "";
+                success(countryCode);
+            });
+        },
+        // utilsScript: "js/utils.js"
+    });
+
+    document.getElementById("mySelect").addEventListener("change", function () {
+        var selectedOption = document.getElementById("mySelect").value;
+        var listItems = document.getElementById("myList").querySelectorAll("td");
+        for (var i = 0; i < listItems.length; i++) {
+            listItems[i].classList.remove("active");
+        }
+        listItems[selectedOption - 1].classList.add("active");
+        $(".remove_css").css({
+            "fontWeight": "",
+            "color": ""
+        });
+        $(".active").children("span").css({
+            "fontWeight": "bolder",
+            "color": "#2c68a5"
+        });
+    });
+    // code show
+
+    function show_code() {
+        $("#destination").html($("#source").html().escape());
+    }
+
+    String.prototype.escape = function () {
+        var tagsToReplace = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;'
+        };
+        return this.replace(/[&<>]/g, function (tag) {
+            return tagsToReplace[tag] || tag;
+        });
+    };
+
+    // form update
+
+    $('#form').submit(function (e) {
+        $('#UserNameID').text($("#UserName").val());
+        $('#DesignationID').text($("#Designation").val());
+        $('#CountactNoID').text($("#phone").val());
+        $('#myList').select($("#mySelect").val());
+
+        // Prevent reload page
+        e.preventDefault();
+    });
+
+    function copyFunction() {
+        const copyText = document.getElementById("copycode").textContent;
+        const textArea = document.createElement('textarea');
+
+        var custumheader = "<!doctype html>\n" +
+            "<html>\n" +
+            "<head>\n" +
+            "<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\n" +
+            "<meta name=\"format-detection\" content=\"telephone=no,date=no,address=no,email=no\">\n" +
+            "<meta name=\"autolink\" content=\"no\">\n" +
+            "<meta name=\"x-apple-disable-message-reformatting\">\n" +
+            "<title>Signature</title>\n" +
+            "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n" +
+            "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n" +
+            "<link href=\"https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap\" rel=\"stylesheet\">\n" +
+            "<style>\n" +
+            "v:* {\n" +
+            "behavior: url(#default#VML);\n" +
+            "display: inline-block;\n" +
+            "}\n" +
+            "body,\n" +
+            "table,\n" +
+            "td,\n" +
+            "a {\n" +
+            "-webkit-text-size-adjust: 100%;\n" +
+            "-ms-text-size-adjust: 100%;\n" +
+            "}\n" +
+            "table,\n" +
+            "td {\n" +
+            "mso-table-lspace: 0pt;\n" +
+            "mso-table-rspace: 0pt;\n" +
+            "}\n" +
+            "img {\n" +
+            "-ms-interpolation-mode: bicubic;\n" +
+            "}\n" +
+            "/* iOS BLUE LINKS */\n" +
+            "a[x-apple-data-detectors] {\n" +
+            "color: inherit !important;\n" +
+            "text-decoration: none !important;\n" +
+            "font-size: inherit !important;\n" +
+            "font-family: inherit !important;\n" +
+            "font-weight: inherit !important;\n" +
+            "line-height: inherit !important;\n" +
+            "}\n" +
+            ".cta-text a {\n" +
+            "color: #ffffff;\n" +
+            "}\n" +
+            ".footer a {\n" +
+            "color: #0468ce;\n" +
+            "}\n" +
+            "p a {\n" +
+            "color: #0563C1;\n" +
+            "}\n" +
+            "tr.city-selection td.active {\n" +
+            "color: #2c68a5 !important;\n" +
+            "font-weight: bold !important;\n" +
+            "}\n" +
+            "</style>\n" +
+            "<!--[if (mso)|(mso 16)]>\n" +
+            "<style type=\"text/css\">\n" +
+            "a{text-decoration: none;}\n" +
+            "</style>\n" +
+            "<![endif]-->\n" +
+            "</head>\n" +
+            "<body style=\"background-color: #ffffff; margin: 0; padding: 0;\">\n";
+
+        custufooter = "</body>\n" +
+            "</html>\n";
+
+        var copyText1 = custumheader + copyText + custufooter;
+        var el = document.createElement('textarea');
+        el.value = copyText1;
+        el.setAttribute('readonly', '');
+        el.style = {
+            position: 'absolute',
+            left: '-9999px'
+        };
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+    }
+
+    document.getElementById('button').addEventListener('click', copyFunction);
+
+    $("#phone").keyup(function () {
+        $('#CountryCodeID1').text(intl.selectedCountryData['dialCode']);
+    });
+</script>
+</html>
