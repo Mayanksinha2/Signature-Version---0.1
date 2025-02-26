@@ -1,0 +1,336 @@
+        v* {
+            behavior: url(#default#VML);
+            display: inline-block;
+        }
+
+        /* .wp-image-1269 {
+            height: auto;
+            max-width: 100%;
+        } */
+
+        body,
+        table,
+        td,
+        tr,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            border: 0px solid #ffffff;
+            outline: 0px solid #ffffff;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /* iOS BLUE LINKS */
+
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0px 0px 0px 0px;
+            padding: 0px 0px 0px 0px;
+            color: rgb(55, 135, 119);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            margin: 0px 0px 0px 0px;
+        }
+
+        .signature-row {
+            display: flex;
+            flex-wrap: nowrap;
+            align-content: center;
+            margin: 20px;
+        }
+
+        .logo-col {
+            border-right: 2px solid;
+            padding: 30px;
+        }
+
+        .logo-col img {
+            width: 140px;
+        }
+
+        .logo-url {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .logo-url a {
+            text-decoration: none;
+            font-size: 10px;
+            color: #078d7a;
+        }
+
+        .content-col {
+            padding: 10px 20px;
+        }
+
+        .content-col h2 {
+            font-weight: 500;
+            font-size: 20px;
+        }
+
+        .content-col p {
+            font-size: 10px;
+            color: #2c68a5;
+        }
+
+        .city-selection {
+            padding-left: 0;
+        }
+
+        ul.city-selection li {
+            color: #078d7a;
+            display: inline;
+            border-right: 1px solid;
+            padding-right: 10px;
+            padding-left: 5px;
+            font-size: 10px;
+        }
+
+        ul.city-selection li:last-child {
+            border-right: 0px solid;
+        }
+
+        .intl-tel-input {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .source {
+            width: 30%;
+            float: left;
+            margin-right: 2%;
+            padding: 20px;
+            background: lightblue;
+            color: #333;
+        }
+
+        .destination-container {
+            display: block;
+            width: 68%;
+            float: left;
+            padding: 20px;
+            background: goldenrod;
+            color: #f7f7f7;
+        }
+
+        .destination {
+            margin: 0;
+        }
+
+        .label {
+            padding: 10px;
+            font-size: 18px;
+            color: #111;
+        }
+
+        .copy-text {
+            position: relative;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            display: flex;
+        }
+
+        .copy-text input.text {
+            padding: 10px;
+            font-size: 18px;
+            color: #555;
+            border: none;
+            outline: none;
+        }
+
+        .copy-text button {
+            padding: 10px;
+            background: #5784f5;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .copy-text button:active {
+            background: #789ce2;
+        }
+
+        .copy-text button:before {
+            content: "Copied";
+            position: absolute;
+            top: -45px;
+            right: 0px;
+            background: #5c81dc;
+            padding: 8px 10px;
+            border-radius: 20px;
+            font-size: 15px;
+            display: none;
+        }
+
+        .copy-text button:after {
+            content: "";
+            position: absolute;
+            top: -20px;
+            right: 25px;
+            width: 10px;
+            height: 10px;
+            background: #5c81dc;
+            transform: rotate(45deg);
+            display: none;
+        }
+
+        .copy-text.active button:before,
+        .copy-text.active button:after {
+            display: block;
+        }
+
+        footer {
+            position: fixed;
+            height: 50px;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            background-color: #5784f5;
+            color: white;
+            text-align: center;
+        }
+
+        footer p {
+            margin: revert;
+            padding: revert;
+        }
+
+        button.custom-btn-position {
+            top: 28px;
+            left: 16px;
+        }
+
+        ::selection {
+            background-color: #078d7a;
+            color: white;
+        }
+
+        #text {
+            box-sizing: border-box;
+            background-color: #e8ebee;
+            color: #078d7a;
+            border-radius: 15px;
+            padding: 10px 15px;
+            margin: 20px;
+            display: flex;
+        }
+
+        #copy {
+            position: relative;
+            color: #fff;
+        }
+
+        #copy:before {
+            content: "";
+            width: 16px;
+            height: 16px;
+            bottom: -20px;
+            left: 82px;
+            clip-path: polygon(50% 40%, 0% 100%, 100% 100%);
+        }
+
+        #copy:after {
+            content: attr(tooltip);
+            width: 140px;
+            bottom: -48px;
+            left: 20px;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        #copy:before,
+        #copy:after {
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            background-color: #078d7a;
+            color: #fff;
+            transform: translateY(-10px);
+            transition: all 300ms ease;
+        }
+
+        #copy:hover:before,
+        #copy:hover:after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fa {
+            padding-right: 10px;
+            font-size: 30px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .meet {
+            margin-left: 90px;
+ 
+        }
+
+        .border {
+            height: 0px;
+        }
+
+        /* Add a hover effect if you want */
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        /* Set a specific color for each brand */
+
+        /* Facebook */
+        .fa-facebook {
+            color: black;
+        }
+
+        /* Twitter */
+        .fa-twitter {
+            color: black;
+        }
+
+        .fa-linkedin {
+            color: black;
+        }
+
+        .blockart-section-inner {
+            text-align: center;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
